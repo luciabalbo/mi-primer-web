@@ -1,0 +1,149 @@
+body {
+    background: url(fondo.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+
+#encabezado {
+    background-color: rgba(0, 0, 0, 0.501);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#titulo {
+    padding-left: 15px;
+    height: 50px;
+    margin-left: 20px;
+    font-size: 54px;
+    text-align: left;
+    color: #ffffff;
+    font-family: cursive;
+    padding-top: 20px;
+}
+
+#botones {
+    padding-right: 15px;
+    margin-right: 20px;
+    height: 50px;
+    text-align: right;
+    color: #ffffff;
+    font-family: cursive;
+    padding-bottom: 20px;
+}
+
+button a {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #000;
+}
+
+button a:hover {
+    color: #000;
+    background: #ffffff;
+    background: linear-gradient(to top, #ffffff, #ffffff)
+}
+
+button:hover {
+    color: #000 !important;
+    background: #ffffff;
+    background: linear-gradient(to top, #ffffff, #ffffff)
+}
+
+#IS {
+    font-family: arial;
+    color: #000 !important;
+    font-size: 14px;
+    box-shadow: 1px 1px 1px #000;
+    padding: 10px 9px;
+    border-radius: 20px;
+    border: 0px solid #334c1f;
+    background: #334c1f;
+    background: linear-gradient(to top, #334c1f, #c8efbb)
+}
+
+#R {
+    font-family: arial;
+    color: #000 !important;
+    font-size: 14px;
+    box-shadow: 1px 1px 1px #000;
+    padding: 10px 9px;
+    border-radius: 20px;
+    border: 0px solid #334c1f;
+    background: #334c1f;
+    background: linear-gradient(to top, #334c1f, #c8efbb)
+}
+
+#imagenes {
+    display: flex;
+    width: 600px;
+    height: 430px;
+    margin: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#imagenes img {
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+#imagenes img:hover {
+    cursor: crosshair;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+}
+
+#search-box {
+    position: relative;
+    width: 34%;
+    margin: 0;
+}
+
+#search-form {
+    height: 34px;
+    border: 2px solid #334c1f;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+#search-text {
+    font-size: 16px;
+    color: #ddd;
+    border-width: 0;
+    background: transparent;
+}
+
+#search-box input[type="text"] {
+    width: 90%;
+    padding: 8px 0 12px 1em;
+    color: #333;
+    outline: none;
+}
+
+#search-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 34px;
+    width: 80px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    line-height: 4px;
+    border-width: 0;
+    background-color: #334c1f;
+    -webkit-border-radius: 0px 15px 15px;
+    -moz-border-radius: 0px 15px 15px 15px;
+    border-radius: 15px 15px 15px 15px;
+    cursor: pointer;
+    border: 0px solid #334c1f;
+    background: linear-gradient(to top, #334c1f, #c8efbb)
+}
