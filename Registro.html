@@ -9,22 +9,57 @@
     <title>Registro</title>
 </head>
 
+<script>
+    function validarNombreUsuario() {
+        var nombre = document.getElementById("nombre").value;
+        var contraseña = document.getElementById("contraseña").value;
+        var repetirContraseña = document.getElementById("repetirContraseña").value;
+        var email = document.getElementById("email").value;
+        // Se define la expresión regular
+        const patron = /^[a-zA-Z0-9]{3,15}$/;
+        const patron2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z0-9_]{6,15}$/
+        const patronEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        const partesEmail = email.split('@');
+        const dominio = partesEmail[1];
+
+        // Se verifica si el nombre de usuario cumple con el patrón definido
+        if (patron.test(nombre) && patron2.test(contraseña) && contraseña == repetirContraseña && email
+            && patronEmail.test(email)) {
+            return true;
+        } else if (!patron.test(nombre)) {
+            alert("El nombre de usuario debe tener al menos 3 caracteres y solo puede contener letras mayusculas, minusculas y numeros");
+            return false;
+        }
+        else if (!patron2.test(contraseña)) {
+            alert("La contraseña debe contener al menos una letra en mayúsculas, una letra en minúsculas y un número");
+        }
+        else if (contraseña != repetirContraseña) {
+            alert("Las contraseñas no coinciden");
+        }
+        else if (!patronEmail.test(email) || dominio.length < 2 || dominio.length > 4) {
+            alert("El email ingresado es incorrecto")
+        }
+    }
+</script>
+
 <body>
     <center>
         <h2>Formulario de registro</h2>
         <fieldset>
             <legend>Quien eres?</legend><br>
             Foto de perfil <input type="file"><br><br>
-            Nombre <input type="text"><br><br>
+            Nombre <input id="nombre" type="text"><br><br>
             Apellido <input type="text"><br><br>
-            Correo electronico <input type="email"><br><br>
+            Correo electronico <input id="email" type="email"><br><br>
             Fecha de nacimiento <input type="date"><br><br>
-            Sexo <select>
+            Sexo <select required>
                 <option>Femenino</option>
                 <option>Masculino</option>
                 <option>Otro</option>
             </select><br><br>
             País de Residencia <select>
+                <option value="Se">Seleccione su país</option>
                 <option value="AF">Afganistán</option>
                 <option value="AL">Albania</option>
                 <option value="DE">Alemania</option>
@@ -265,10 +300,10 @@
         <fieldset>
             <legend>Como quieres iniciar sesion?</legend><br>
             Nombre de usuario <input type="text"><br><br>
-            Contraseña <input type="password"><br><br>
-            Repetir contraseña <input type="password">
+            Contraseña <input id="contraseña" type="password"><br><br>
+            Repetir contraseña <input id="repetirContraseña" type="password">
         </fieldset><br>
-        <button id="CC" type="submit">Crear cuenta</button>
+        <button id="CC" type="submit" onclick="validarNombreUsuario()">Crear cuenta</button>
     </center>
 </body>
 
