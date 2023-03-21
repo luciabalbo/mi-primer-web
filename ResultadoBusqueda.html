@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Resultado busqueda</title>
+</head>
+
+<body>
+    <table id="tabla-resultados">
+        <thead>
+            <tr>
+                <th>Imagen</th>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>País</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="" alt=""></td>
+                <td>Titulo 1</td>
+                <td>2022-01-01</td>
+                <td>España</td>
+            </tr>
+            <tr>
+                <td><img src="" alt=""></td>
+                <td>Titulo 2</td>
+                <td>2021-01-01</td>
+                <td>Francia</td>
+            </tr>
+            <tr>
+                <td><img src="" alt=""></td>
+                <td>Titulo 3</td>
+                <td>2023-01-01</td>
+                <td>Italia</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <button onclick="ordenar('titulo', 'ascendente')">Ordenar por título ascendente</button>
+        <button onclick="ordenar('titulo', 'descendente')">Ordenar por título descendente</button>
+        <button onclick="ordenar('fecha', 'ascendente')">Ordenar por fecha ascendente</button>
+        <button onclick="ordenar('fecha', 'descendente')">Ordenar por fecha descendente</button>
+        <button onclick="ordenar('pais', 'ascendente')">Ordenar por país ascendente</button>
+        <button onclick="ordenar('pais', 'descendente')">Ordenar por país descendente</button>
+    </div>
+
+    <script>
+        function ordenar(campo, direccion) {
+            // Obtener los elementos de la tabla
+            const tabla = document.getElementById('tabla-resultados');
+            const tbody = tabla.getElementsByTagName('tbody')[0];
+            const filas = tbody.getElementsByTagName('tr');
+
+            // Convertir las filas de la tabla a un array
+            const filasArray = Array.prototype.slice.call(filas, 0);
+
+            // Obtener el índice del campo por el cual se va a ordenar
+            let indice;
+            if (campo === 'titulo') {
+                indice = 0;
+            } else if (campo === 'fecha') {
+                indice = 1;
+            } else if (campo === 'pais') {
+                indice = 2;
+            }
+
+            // Ordenar las filas del array según el campo y la dirección seleccionados por el usuario
+            filasArray.sort(function (a, b) {
+                let aValor = a.getElementsByTagName('td')[indice].textContent.trim();
+                let bValor = b.getElementsByTagName('td')[indice].textContent.trim();
+                if (campo === 'fecha') {
+                    aValor = new Date(a)
+                }
+            });
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
